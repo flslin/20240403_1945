@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
 
     Animator ani;
 
+    public Transform pos = null;
+    public GameObject bullet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,12 @@ public class Player : MonoBehaviour
             ani.SetBool("up", true);
         else
             ani.SetBool("up", false);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            // 프리팹 위치 방향 생성
+            Instantiate(bullet, pos.position, Quaternion.identity);
+        }
 
         transform.Translate(moveX, moveY, 0);
 
