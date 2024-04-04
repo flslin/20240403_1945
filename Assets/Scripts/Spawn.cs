@@ -20,7 +20,7 @@ public class Spawn : MonoBehaviour
             float spawn = Random.Range(-2.3f, 2.3f);
             Instantiate(enemy, new Vector2(spawn, transform.position.y), Quaternion.identity);
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
     }
 

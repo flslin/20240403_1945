@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PBullet : MonoBehaviour
 {
-    public float Speed = 4.0f;
-    public int damage = 4;
+    public float Speed = 7.0f;
 
     private void Start()
     {
@@ -21,5 +20,13 @@ public class PBullet : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Monster"))
+        {
+            collision.gameObject.GetComponent<Monster>().Damage(atk);
+        }
     }
 }

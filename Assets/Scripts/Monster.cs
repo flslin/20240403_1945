@@ -14,13 +14,17 @@ public class Monster : MonoBehaviour
     public GameObject enemy;
 
     public int hp = 10;
-    public PBullet pb;
+    public Player pb;
 
-    public int ran;
+    public GameObject itemPow;
+    public GameObject itemBomb;
+    public int cnt = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        pb = GetComponent<Player>();
+        //ran = new Random(0, 1);
         Invoke("CreateBullet", delay);
     }
 
@@ -57,8 +61,21 @@ public class Monster : MonoBehaviour
                 GameObject go = Instantiate(effect, gameObject.transform.position, Quaternion.identity);
                 Destroy(go, 0.5f);
                 Destroy(enemy);
-                ran = Random.Range(0, 1);
+                ItemDrop();
             }
+        }
+    }
+
+    public void Damage(int atk)
+    {
+        hp -= atk;
+
+        if (hp <= 0)
+        {
+            GameObject go = Instantiate(effect, gameObject.transform.position, Quaternion.identity);
+            Destroy(go, 0.5f);
+            Destroy(enemy);
+            ItemDrop();
         }
     }
 
@@ -69,11 +86,18 @@ public class Monster : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    void item()
+    void ItemDrop()
     {
-        if (ran == 1)
+        int ran = Random.Range(0, 10);
+        if (ran == 1 || ran == 3 || ran == 5)
         {
+            Instantiate(itemPow, transform.position, Quaternion.identity);
+        }
 
+
+        if (ran == 7)
+        {
+            Instantiate(itemBomb, transform.position, Quaternion.identity);
         }
     }
 }

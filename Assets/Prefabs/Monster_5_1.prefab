@@ -216,3 +216,6 @@ MonoBehaviour:
   enemy: {fileID: 6062184474142201542}
   hp: 10
   pb: {fileID: 3254126905517113050, guid: 2fa2903dd89c2444288b336ffb3921e5, type: 3}
+  itemPow: {fileID: 3864445053584085926, guid: 776ea677fc5c1dd418fadf2daa1d4125, type: 3}
+  itemBomb: {fileID: 4444290592023931874, guid: f41888ed92ac70c4e9919d7cbe10ceba, type: 3}
+  cnt: 0

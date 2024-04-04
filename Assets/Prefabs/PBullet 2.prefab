@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7221725910870166512}
   - component: {fileID: 3254126905517113050}
   m_Layer: 0
-  m_Name: PBullet
+  m_Name: PBullet 2
   m_TagString: PBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 24d6f09920fe65e4aa55ee700f57b2fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfd85f5b7d996c346bb389e9f1bff6e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  damage: 3
+  damage: 7

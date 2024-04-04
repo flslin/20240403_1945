@@ -9,10 +9,15 @@ public class Player : MonoBehaviour
     Animator ani;
 
     public Transform pos = null;
-    public GameObject bullet;
+    //public GameObject bullet;
     public int hp = 5;
+    public int damage = 5;
 
     public bool ch = true;
+
+    public int pow = 0;
+    // 미사일 갯수 여러개
+    public List<GameObject> bullet = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +76,21 @@ public class Player : MonoBehaviour
             StartCoroutine(ChangeColor());
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            Debug.Log("아이템");
+            pow += 1;
+
+            if (pow >= 3)
+            {
+                pow = 3;
+            }
+
+            Destroy(collision.gameObject);
+        }
+            
+
     }
 
     IEnumerator ChangeColor()
@@ -83,9 +103,27 @@ public class Player : MonoBehaviour
     IEnumerator Shoot()
     {
         yield return new WaitForSeconds(0.1f);
-        
+
         // 프리팹 위치 방향 생성
-        Instantiate(bullet, pos.position, Quaternion.identity);
+        switch (pow)
+        {
+            case 0:
+                Instantiate(bullet[0], pos.position, Quaternion.identity);
+                damage = 3;
+                break;
+            case 1:
+                Instantiate(bullet[1], pos.position, Quaternion.identity);
+                damage = 5;
+                break;
+            case 2:
+                Instantiate(bullet[2], pos.position, Quaternion.identity);
+                damage = 7;
+                break;
+            case 3:
+                Instantiate(bullet[3], pos.position, Quaternion.identity);
+                damage = 10;
+                break;
+        }
         ch = true;
     }
 
