@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
-            
+
 
     }
 
@@ -103,27 +103,9 @@ public class Player : MonoBehaviour
     IEnumerator Shoot()
     {
         yield return new WaitForSeconds(0.1f);
-
         // 프리팹 위치 방향 생성
-        switch (pow)
-        {
-            case 0:
-                Instantiate(bullet[0], pos.position, Quaternion.identity);
-                damage = 3;
-                break;
-            case 1:
-                Instantiate(bullet[1], pos.position, Quaternion.identity);
-                damage = 5;
-                break;
-            case 2:
-                Instantiate(bullet[2], pos.position, Quaternion.identity);
-                damage = 7;
-                break;
-            case 3:
-                Instantiate(bullet[3], pos.position, Quaternion.identity);
-                damage = 10;
-                break;
-        }
+        Instantiate(bullet[pow], pos.position, Quaternion.identity);
+
         ch = true;
     }
 

@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 176725674}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,6 +288,7 @@ MonoBehaviour:
   moveSpeed: 5
   pos: {fileID: 2092182844}
   hp: 5
+  damage: 5
   ch: 1
   pow: 0
   bullet:
@@ -416,8 +417,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013974637, y: 0}
-  m_Size: {x: 0.38511539, y: 1}
+  m_Offset: {x: 0.020159706, y: 0}
+  m_Size: {x: 0.24904397, y: 1}
   m_Direction: 0
 --- !u!1 &519420028
 GameObject:
@@ -660,7 +661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a381f49c9a3e438c2a51a84b703b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnStop: 20
   enemy: {fileID: 6062184474142201542, guid: b49f26f61f3bdfc439ee3051273e5d67, type: 3}
+  enemy2: {fileID: 5218356374628094134, guid: 16b6c6ab910ab7c439113f3e3b5087ed, type: 3}
 --- !u!4 &1207813523
 Transform:
   m_ObjectHideFlags: 0
@@ -670,7 +673,7 @@ Transform:
   m_GameObject: {fileID: 1207813521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

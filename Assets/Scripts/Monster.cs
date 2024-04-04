@@ -14,7 +14,7 @@ public class Monster : MonoBehaviour
     public GameObject enemy;
 
     public int hp = 10;
-    public Player pb;
+    public int pb;
 
     public GameObject itemPow;
     public GameObject itemBomb;
@@ -23,7 +23,7 @@ public class Monster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pb = GetComponent<Player>();
+        pb = GetComponent<Player>().damage;
         //ran = new Random(0, 1);
         Invoke("CreateBullet", delay);
     }
@@ -48,23 +48,6 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("PBullet"))
-        {
-            StartCoroutine(ChangeColor());
-            Destroy(collision.gameObject);
-            hp -= pb.damage;
-
-            if (hp <= 0)
-            {
-                GameObject go = Instantiate(effect, gameObject.transform.position, Quaternion.identity);
-                Destroy(go, 0.5f);
-                Destroy(enemy);
-                ItemDrop();
-            }
-        }
-    }
 
     public void Damage(int atk)
     {
@@ -76,6 +59,16 @@ public class Monster : MonoBehaviour
             Destroy(go, 0.5f);
             Destroy(enemy);
             ItemDrop();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PBullet"))
+        {
+            StartCoroutine(ChangeColor());
+            Damage(pb);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -93,7 +86,6 @@ public class Monster : MonoBehaviour
         {
             Instantiate(itemPow, transform.position, Quaternion.identity);
         }
-
 
         if (ran == 7)
         {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PBullet : MonoBehaviour
 {
     public float Speed = 7.0f;
+    public int atk = 3;
 
     private void Start()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class ItemBomb : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class ItemBomb : MonoBehaviour
     public float itemVelocity = 20f;
     Rigidbody2D rbody;
 
+    public int pow = 0;
+    Player p;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,28 +23,29 @@ public class ItemBomb : MonoBehaviour
         rbody.AddForce(new Vector3(itemVelocity, itemVelocity, 0f));
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (moveX < 2.4)
-        //    moveX += Time.deltaTime;
-        //else if (moveX > 2.4)
-        //    moveX -= Time.deltaTime;
-        //if (moveY < 4.4)
-        //    moveY += Time.deltaTime;
-        //else if (moveY > 4.4)
-        //    moveY -= Time.deltaTime;
+        if (collision.tag == "Player")
+        {
+            pow++;
+            switch (pow)
+            {
+                case 0:
+                    p.damage = 3;
+                    break;
+                case 1:
+                    p.damage = 5;
+                    break;
+                case 2:
+                    p.damage = 7;
+                    break;
+                case 3:
+                    p.damage = 10;
+                    break;
+            }
+        }
 
-        //if (moveX > -2.4)
-        //    moveX += Time.deltaTime;
-        //else if (moveX < -2.4)
-        //    moveX -= Time.deltaTime;
-        //if (moveY > -4.4)
-        //    moveY += Time.deltaTime;
-        //else if (moveY < -4.4)
-        //    moveY -= Time.deltaTime ;
-
-        //bomb.transform.Translate(moveX * speed * Time.deltaTime, moveY * speed * Time.deltaTime, 1);
+        if (pow >= 3)
+            pow = 3;
     }
-
 }
