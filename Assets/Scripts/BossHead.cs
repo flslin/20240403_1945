@@ -35,6 +35,7 @@ public class BossHead : MonoBehaviour
         {
             StartCoroutine(ChangeColor());
             hp--;
+            Destroy(collider.gameObject);
         }
 
         if (hp == 0)
