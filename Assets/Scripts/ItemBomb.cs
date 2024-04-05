@@ -26,24 +26,7 @@ public class ItemBomb : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-        {
             pow++;
-            switch (pow)
-            {
-                case 0:
-                    p.damage = 3;
-                    break;
-                case 1:
-                    p.damage = 5;
-                    break;
-                case 2:
-                    p.damage = 7;
-                    break;
-                case 3:
-                    p.damage = 10;
-                    break;
-            }
-        }
 
         if (pow >= 3)
             pow = 3;

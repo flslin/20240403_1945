@@ -82,6 +82,26 @@ public class Player : MonoBehaviour
             Debug.Log("¾ÆÀÌÅÛ");
             pow += 1;
 
+            if (collision.tag == "Player")
+            {
+                pow++;
+                switch (pow)
+                {
+                    case 0:
+                        damage = 3;
+                        break;
+                    case 1:
+                        damage = 5;
+                        break;
+                    case 2:
+                        damage = 7;
+                        break;
+                    case 3:
+                        damage = 10;
+                        break;
+                }
+            }
+
             if (pow >= 3)
             {
                 pow = 3;
@@ -108,6 +128,5 @@ public class Player : MonoBehaviour
 
         ch = true;
     }
-
 
 }

@@ -14,7 +14,6 @@ public class Monster : MonoBehaviour
     public GameObject enemy;
 
     public int hp = 10;
-    public int pb;
 
     public GameObject itemPow;
     public GameObject itemBomb;
@@ -23,7 +22,6 @@ public class Monster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pb = GetComponent<Player>().damage;
         //ran = new Random(0, 1);
         Invoke("CreateBullet", delay);
     }
@@ -67,7 +65,7 @@ public class Monster : MonoBehaviour
         if (collision.gameObject.CompareTag("PBullet"))
         {
             StartCoroutine(ChangeColor());
-            Damage(pb);
+            Damage(10);
             Destroy(collision.gameObject);
         }
     }
