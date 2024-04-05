@@ -13,9 +13,7 @@ public class ItemBomb : MonoBehaviour
     public float itemVelocity = 20f;
     Rigidbody2D rbody;
 
-    public int pow = 0;
     Player p;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +21,14 @@ public class ItemBomb : MonoBehaviour
         rbody.AddForce(new Vector3(itemVelocity, itemVelocity, 0f));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-            pow++;
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        if (p.pow < 3)
+    //            damage += p.gameObject.GetComponent<Player>().GetDamage();
 
-        if (pow >= 3)
-            pow = 3;
-    }
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

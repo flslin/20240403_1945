@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     // 미사일 갯수 여러개
     public List<GameObject> bullet = new List<GameObject>();
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,40 +78,30 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("BossBullet"))
+        {
+            hp--;
+            StartCoroutine(ChangeColor());
+            Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.CompareTag("Item"))
         {
             Debug.Log("아이템");
-            pow += 1;
 
-            if (collision.tag == "Player")
-            {
-                pow++;
-                switch (pow)
-                {
-                    case 0:
-                        damage = 3;
-                        break;
-                    case 1:
-                        damage = 5;
-                        break;
-                    case 2:
-                        damage = 7;
-                        break;
-                    case 3:
-                        damage = 10;
-                        break;
-                }
-            }
+            pow++;
 
             if (pow >= 3)
-            {
                 pow = 3;
-            }
 
             Destroy(collision.gameObject);
         }
 
+    }
 
+    public int GetDamage()
+    {
+        return damage;
     }
 
     IEnumerator ChangeColor()

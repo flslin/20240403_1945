@@ -8,6 +8,8 @@ TagManager:
   - MBullet
   - Item
   - Monster
+  - Boss
+  - BossBullet
   layers:
   - Default
   - TransparentFX

@@ -161,7 +161,6 @@ MonoBehaviour:
   effect: {fileID: 6592913584080812786, guid: 670357769353f3b4ca4470b6a47fa066, type: 3}
   enemy: {fileID: 5218356374628094134}
   hp: 20
-  pb: 0
   itemPow: {fileID: 3864445053584085926, guid: 776ea677fc5c1dd418fadf2daa1d4125, type: 3}
   itemBomb: {fileID: 4444290592023931874, guid: f41888ed92ac70c4e9919d7cbe10ceba, type: 3}
   cnt: 0
@@ -197,7 +196,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.115549445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -208,7 +207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1, y: 3.35}
+  m_Size: {x: 3.1, y: 3.118901}
   m_EdgeRadius: 0
 --- !u!1 &8812270150738188622
 GameObject:

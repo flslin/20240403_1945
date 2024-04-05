@@ -182,7 +182,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.017200053}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -193,7 +193,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.88437784, y: 1.2247622}
+  m_Size: {x: 0.88437784, y: 1.1903621}
   m_EdgeRadius: 0
 --- !u!114 &7394569654886057778
 MonoBehaviour:
@@ -212,10 +212,9 @@ MonoBehaviour:
   p1: {fileID: 9005571646152117064}
   p2: {fileID: 3272172956654053721}
   mBullet: {fileID: 5288988520521631668, guid: 78c8284b65720c34f8127c7494c0d0c1, type: 3}
-  effect: {fileID: 8128145332807401685, guid: 0b624752a6e34d24bb3a2d1bb6789b73, type: 3}
+  effect: {fileID: 6592913584080812786, guid: 670357769353f3b4ca4470b6a47fa066, type: 3}
   enemy: {fileID: 6062184474142201542}
   hp: 10
-  pb: {fileID: 0}
   itemPow: {fileID: 3864445053584085926, guid: 776ea677fc5c1dd418fadf2daa1d4125, type: 3}
   itemBomb: {fileID: 4444290592023931874, guid: f41888ed92ac70c4e9919d7cbe10ceba, type: 3}
   cnt: 0
