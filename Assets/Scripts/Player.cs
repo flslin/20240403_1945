@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
     // 미사일 갯수 여러개
     public List<GameObject> bullet = new List<GameObject>();
 
+    public GameObject lazer;
+    public float gValue = 0;
+    public Image gage;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +61,31 @@ public class Player : MonoBehaviour
         {
             ch = false;
             StartCoroutine(Shoot());
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            gValue += Time.deltaTime;
+            gage.fillAmount = gValue;
+
+            if (gValue >= 1)
+            {
+                GameObject go = Instantiate(lazer, pos.position, Quaternion.identity);
+
+                Destroy(go, 3);
+                gValue = 0;
+            }
+        }
+        else
+        {
+            gValue -= Time.deltaTime;
+
+            if (gValue <= 0)
+            {
+                gValue = 0;
+            }
+            // UI
+            gage.fillAmount = gValue;
         }
 
         transform.Translate(moveX, moveY, 0);

@@ -112,6 +112,8 @@ public class Boss : MonoBehaviour
     {
         if (collider.CompareTag("PBullet"))
             StartCoroutine(ChangeColor());
+        if (collider.CompareTag("Lazer"))
+            StartCoroutine(ChangeColor());
     }
 
     IEnumerator ChangeColor()
