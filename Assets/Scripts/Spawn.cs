@@ -9,9 +9,19 @@ public class Spawn : MonoBehaviour
     private GameObject enemy;
     [SerializeField]
     private GameObject enemy2;
+    [SerializeField]
+    private GameObject boss;
 
     bool swi = true;
     bool swi2 = true;
+
+    [SerializeField]
+    GameObject textBossWarning; // 보스 둥장 텍스트 오브젝트
+
+    private void Awake()
+    {
+        textBossWarning.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +65,10 @@ public class Spawn : MonoBehaviour
     {
         swi2 = false;
         StopCoroutine(spawn2());
+        // 보스몬스터
+        textBossWarning.SetActive(true);
+
+        Vector3 pos = new Vector3(0, 3, 0);
+        Instantiate(boss, pos, Quaternion.identity);
     }
 }

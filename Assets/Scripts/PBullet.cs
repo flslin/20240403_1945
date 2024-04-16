@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Progress;
 
 public class PBullet : MonoBehaviour
 {
     public float Speed = 7.0f;
-    public int atk = 3;
 
     //ItemBomb item = new ItemBomb();
     ItemBomb item;
-    Player player;
+    int dam;
 
 
     private void Start()
     {
-        player = GetComponent<Player>();
+        dam = GetComponent<Player>().damage;
         item = GetComponent<ItemBomb>();
     }
 
@@ -35,13 +35,13 @@ public class PBullet : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            collision.gameObject.GetComponent<Monster>().Damage(atk);
+            collision.gameObject.GetComponent<Monster>().Damage(dam);
             Destroy(gameObject);
         }
 
         if (collision.CompareTag("Boss"))
         {
-            collision.gameObject.GetComponent<Boss>().Damage(atk);
+            collision.gameObject.GetComponent<Boss>().Damage(dam);
             Destroy(gameObject);
         }
 

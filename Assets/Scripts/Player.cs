@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Transform pos = null;
     //public GameObject bullet;
     public int hp = 5;
-    public int damage = 5;
+    public int damage = 3;
 
     public bool ch = true;
 
@@ -118,7 +118,21 @@ public class Player : MonoBehaviour
         {
             Debug.Log("¾ÆÀÌÅÛ");
 
-            pow++;
+            switch (pow)
+            {
+                case 0:
+                    damage = 3;
+                    break;
+                case 1:
+                    damage = 5;
+                    break;
+                case 2:
+                    damage = 7;
+                    break;
+                case 3:
+                    damage = 10;
+                    break;
+            }
 
             if (pow >= 3)
                 pow = 3;
@@ -128,7 +142,7 @@ public class Player : MonoBehaviour
 
     }
 
-    public int GetDamage()
+    public int Damage()
     {
         return damage;
     }

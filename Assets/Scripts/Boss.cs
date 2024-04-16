@@ -22,12 +22,20 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 1초뒤 Hide함수 호출
+        Invoke("Hide", 1);
+
         head = GetComponent<BossHead>();
         GetComponent<BoxCollider2D>().enabled = false;
         //rbody = GetComponent<Rigidbody2D>();
         //rbody.AddForce(new Vector3(itemVelocity, 0f, 0f));
         StartCoroutine(BossBullet());
         StartCoroutine(CircleFire());
+    }
+
+    void Hide()
+    {
+        GameObject.Find("BossWarning").SetActive(false);
     }
 
     IEnumerator BossBullet()
